@@ -1,0 +1,162 @@
+body{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0 0 200px;
+}
+/* 2) container card */
+.container {
+    margin: 0 0 0 60px;
+    max-width: 100%;
+    padding: 30px;
+}
+
+/* Title */
+.page-container h1{
+  font-size: 24px;
+  margin: 10px 0 16px;
+  color: #212529;
+  border-bottom: 1px solid black;
+  padding-bottom: 6px;
+}
+
+/* ===== Topbar Form (your existing <form class="filter-form">) ===== */
+.filter-form{
+  width: 100%;
+  background: #f7f9fb;          /* matches your design */
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+
+  /* inner flex wrapper (.filters) handled below, but add safe defaults */
+  display: block;
+}
+
+/* Inner fields row */
+.filter-form .filters{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;               /* wrap on small screens */
+  justify-content: center;       /* centered like your topbar */
+}
+
+/* Each field: label + control */
+.filter-form .field{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 4px 0;
+}
+
+/* Labels */
+.filter-form label{
+  font-size: 1rem;
+  font-weight: 700;
+  color: #495057;
+  white-space: nowrap;
+}
+
+/* Inputs / selects */
+.filter-form input[type="file"],
+.filter-form select{
+  padding: 6px 10px;
+  border: 1px solid #2684fc;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #fff;
+}
+
+/* Make file input look subtle (optional) */
+.filter-form input[type="file"]{
+  border-color: transparent;
+  padding: 0;
+}
+
+/* Submit button */
+.filter-form button[type="submit"]{
+  background: #2684fc;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 1.04rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .15s ease;
+}
+.filter-form button[type="submit"]:hover{
+  background: #1a73e8;
+}
+
+/* Disabled state for selects (future-proof if you toggle via JS) */
+.filter-form select:disabled{
+  background: #eee;
+  color: #888;
+  cursor: not-allowed;
+}
+
+/* ===== Results / Messages ===== */
+/* Anything echoed after the form should read nicely */
+.page-container > p,
+.page-container > div,
+.page-container details{
+  background: #f8f9fa;
+  border-radius: 6px;
+  padding: 12px 14px;
+  margin: 10px 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06);
+}
+
+/* Make long warning lists scrollable if needed */
+.page-container details,
+.page-container .import-results{
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+/* Details/summary readability */
+.page-container details summary{
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 6px;
+}
+
+/* Success/info highlight (if your PHP echoes a <div><strong>Import complete...</strong></div>) */
+.page-container > div strong{
+  color: #0b5ed7;
+}
+
+/* Error styling for <p>Error: ...</p> etc. */
+.page-container > p{
+  border-left: 4px solid #dc3545;
+}
+.page-container > p strong{
+  color: #dc3545;
+}
+
+/* ===== Utility look for lists inside details ===== */
+.page-container details ul{
+  margin: 8px 0 0 18px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1100px){
+  .page-container{
+    margin-left: 180px;
+  }
+}
+@media (max-width: 900px){
+  .page-container{
+    margin-left: 0;
+  }
+  .filter-form{
+    padding: 12px;
+  }
+}

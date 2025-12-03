@@ -1,0 +1,170 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  background-color: #f4f6fb;
+  font-family: 'Segoe UI', sans-serif;
+}
+header {
+      background-color: #fff;
+      padding: 12px 16px;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      height: 70px;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* optional subtle shadow */
+    }
+
+.page-bg {
+  display: flex;
+  justify-content: center;
+  padding: 18px 16px;
+}
+.back-button{
+  color: #1a73e8;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+}
+.profile-card {
+  background: #fff;
+  width: 100%;
+  max-width: 380px;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+.header-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+  flex-grow: 1;
+}
+.full-name {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.avatar-wrapper {
+  position: relative;
+  text-align: center;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 0 auto 15px;
+  display: block;
+  object-fit: cover;
+}
+
+.upload-icon {
+  position: absolute;
+  bottom: 5px;
+  right: calc(50% - 50px + 10px);
+  background: #1a73e8;
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #fff;
+  font-size: 12px;
+}
+
+.student-name {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.student-id {
+  text-align: center;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 20px;
+}
+.section-head{
+   text-align: center;
+   font-size: 16px;
+   font-weight: bold;
+   color: #2684fc;
+   margin-bottom: 16px;
+}
+hr.highlight {
+  border: 0;
+  border-top: 2px solid #2684fc;
+  margin: 14px 0;
+}
+
+.section-title {
+  font-weight: bold;
+  font-size: 14px;
+  text-align: left;
+  margin: 20px 0 8px;
+  color: #1a1a1a;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+}
+
+.form-group {
+  margin-bottom: 12px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.btn {
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-light {
+  background-color: #e2e6ea;
+  color: #333;
+}
+
+.btn-light:hover {
+  background-color: #d6d8db;
+  color: #000;
+}
+
+.btn-primary {
+  background-color: #1a73e8;
+  color: #fff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #1669d6;
+  color: #fff;
+}

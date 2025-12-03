@@ -1,0 +1,93 @@
+        body { background:#f4f4f4; font-family:Arial, sans-serif; margin:0; padding:0; overflow-x:hidden; }
+        main { display:flex; flex-direction:column; margin:20px 10px 20px 150px; min-height:calc(100vh - 130px); }
+        .content-wrapper { display:flex; gap:20px; margin-top:20px; flex-wrap:wrap; justify-content:flex-start; }
+        .student-profile-section, .grades-section { background:#fff; border-radius:15px; padding:30px; flex:1 1 380px; max-width:600px; width:100%; box-sizing:border-box; box-shadow:0 10px 30px rgba(0,0,0,.1); min-width:320px; margin-bottom:20px; }
+        .grades-section { max-width: 620px; overflow: hidden;}
+        .profile-header, .grades-header { display:flex; align-items:center; margin-bottom:30px; padding-bottom:20px; border-bottom:2px solid #f0f0f0; }
+        .back-btn { background:none; border:none; font-size:24px; color:#2684fc; cursor:pointer; margin-right:15px; }
+        .profile-content { display:flex; flex-direction:column; align-items:center; text-align:center; }
+        .profile-tabs { display:flex; margin-bottom:30px; border-bottom:2px solid #f0f0f0; width:100%; justify-content:center; }
+        .tab { padding:10px 30px; color:#999; }
+        .tab.active { color:#2684fc; border-bottom:2px solid #2684fc; }
+        .profile-image { width:120px; height:120px; border-radius:100%; object-fit:cover; margin-bottom:20px; border:4px solid #2684fc; }
+        .student-name { font-size:22px; font-weight:bold; color:#333; margin-bottom:5px; }
+        .student-id { color:#999; font-size:14px; margin-bottom:30px; }
+        .info-section h3 { color:#333; font-size:18px; margin:15px 0 10px; padding-bottom:10px; border-bottom:1px solid #f0f0f0; text-align:left; }
+        .info-grid { display:grid; grid-template-columns:1fr 1fr; gap:15px; text-align:left; }
+        .info-label { font-size:12px; color:#999; text-transform:uppercase; letter-spacing:.5px; margin-bottom:5px; }
+        .info-value { color:#333; font-weight:500; }
+        .semester-filter { display:flex; gap:10px; margin-bottom:10px; }
+        .filter-select { padding:8px 15px; border:1px solid #ddd; border-radius:8px; background:#fff; color:#333; font-size:14px; }
+       /* --- Fix overlapping in Grades table --- */
+.grades-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  table-layout: fixed;          /* keep column widths stable */
+}
+.grades-table thead {
+  background-color: #f9f9f9;
+}
+.grades-table th,
+.grades-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #f0f0f0;
+  vertical-align: top;          /* multi-line cells align nicely */
+  white-space: normal;          /* allow wrapping */
+  overflow-wrap: anywhere;      /* break long words/unbroken tokens */
+  word-break: break-word;       /* legacy support */
+  hyphens: auto;
+  line-height: 1.25;
+}
+
+/* Optional: give each column a reasonable width */
+.grades-table th:nth-child(1),
+.grades-table td:nth-child(1) { width: 14%; }   /* Course Code */
+.grades-table th:nth-child(2),
+.grades-table td:nth-child(2) { width: 26%; }   /* Course Name */
+.grades-table th:nth-child(3),
+.grades-table td:nth-child(3) { width: 18%; }   /* Midterm */
+.grades-table th:nth-child(4),
+.grades-table td:nth-child(4) { width: 12%; }   /* Final Grade */
+.grades-table th:nth-child(5),
+.grades-table td:nth-child(5) { width: 17%; }   /* Remarks */
+.grades-table th:nth-child(6),
+.grades-table td:nth-child(6) { width: 16%; }   /* Status */
+/* Align grades and remarks neatly */
+.grades-table td {
+  vertical-align: middle;
+}
+
+/* Center align numeric grades */
+.grades-table td:nth-child(3),
+.grades-table td:nth-child(4) {
+  text-align: center;
+}
+
+/* Give Remarks a consistent look */
+.grades-table td:nth-child(5) {
+  text-align: center;
+}
+
+/* Make Status stand out */
+.grades-table td:nth-child(6) {
+  font-weight: bold;
+}
+
+
+
+
+
+
+/* Status pill + note stack cleanly on small lines */
+.grades-table td:nth-child(6) span { display: inline-block; }
+.grades-table td:nth-child(6) small { display: block; margin-top: 2px; line-height: 1.2; color: #6c757d; }
+
+/* If anything is still getting clipped, let the right panel overflow vertically */
+.grades-section { max-width: 620px; /* keep yours */ overflow: visible; }
+
+        .gwa-section { background:linear-gradient(135deg,#2684fc); color:#fff; padding:20px; border-radius:10px; margin-top:20px; text-align:center; }
+        .gwa-label { font-size:14px; opacity:.9; margin-bottom:5px; }
+        .gwa-value { font-size:28px; font-weight:bold; }
+        .no-grades { text-align:center; color:#777; }

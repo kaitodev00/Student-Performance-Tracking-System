@@ -1,0 +1,391 @@
+:root {
+  --header-height: 70px;
+  --sidebar-width: 240px;
+}
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+/* === MAIN LAYOUT HOOK === */
+main {
+  margin-top: var(--header-height);
+  margin-left: var(--sidebar-width);
+  padding: 20px;             /* your breathing room */
+  height: 100%;/* fill the remaining vertical space */
+  overflow: auto;            /* scroll if content is tall */
+  box-sizing: border-box;    
+}
+/* === HEADER (head_section.php) === */
+.dashboard-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  height: var(--header-height);
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.left-section {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 35px;
+  margin-right: 10px;
+}
+
+.system-name {
+  font-weight: bold;
+  font-size: 20px;
+  color: #2c65c8;
+}
+
+.right-section .user-info {
+  background-color: #2684FC;
+  border-radius: 20px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.user-text {
+  text-align: right;
+  margin-right: 10px;
+  font-size: 13px;
+}
+
+.profile-pic {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.right-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  z-index: 1; /* just in case */
+}
+.right-section {
+  text-decoration: none;
+}
+.user-dropdown {
+  position: relative;
+}
+
+.user-info {
+  background-color: #2684FC;
+  border-radius: 20px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.user-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  display: none;
+  min-width: 160px;
+  z-index: 10010;
+}
+
+/* Arrow on top */
+.user-dropdown-menu .dropdown-arrow {
+  position: absolute;
+  top: -8px;
+  right: 16px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid white;
+  z-index: 1;
+  filter: drop-shadow(0 -1px 1px rgba(0, 0, 0, 0.1));
+}
+
+.user-dropdown-menu a {
+  display: block;
+  padding: 10px;
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.user-dropdown-menu a:hover {
+  background-color: #f0f0f0;
+}
+.notification-icon {
+  background: none;
+  border: none;
+  color: #2684FC;
+  font-size: 1.25rem;
+  cursor: pointer;
+  position: relative;
+  margin-right: 0.75em;
+  padding: 0; /* prevent added spacing */
+}
+
+.notification-icon .badge {
+  position: absolute;
+  top: -4px;
+  right: -8px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 0.75rem;
+  display: none; /* hide when zero */
+}
+
+/* Dropdown wrapper */
+.notification-dropdown {
+  position: absolute;
+  top: 40px; /* Adjust top position to ensure it's within the viewport */
+  left: 10px;
+  transform: translateX(-50%);
+  width: 300px;
+  background: black;
+  border: 1px solid #ddd;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  display: none; /* Start hidden */
+  overflow: hidden;
+  z-index: 10010; /* Ensure it's on top */
+}
+/* Ensure opacity transition is smooth */
+.notification-dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* TABLE-ROW STYLE NOTIFICATION */
+.notification-dropdown li {
+  display: flex;
+  background: #ffffff;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.notification-dropdown li:hover {
+  background: #f9fafb;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Unread left highlight bar */
+.notification-dropdown li.unread {
+  border-left: 4px solid #2684fc;
+}
+
+.notif-content {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.notif-text {
+  color: #111827;
+  flex: 1;
+  font-weight: 500;
+}
+
+.notif-time {
+  font-size: 12px;
+  color: #6b7280;
+  white-space: nowrap;
+}
+
+.no-notifs {
+  text-align: center;
+  padding: 14px;
+  font-size: 14px;
+  color: #6b7280;
+  background: #fff;
+}
+
+/* Fade animation */
+.fade {
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+/* Make sure show class makes it visible */
+.fade.show {
+  opacity: 1;
+  pointer-events: auto;
+  display: block;  /* Ensure it’s visible */
+}
+
+/* NOTIFICATION ROW LAYOUT */
+.notif-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.notif-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #ddd;
+}
+
+.notif-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.notif-name {
+  font-weight: 600;
+  font-size: 14px;
+  color: #111827;
+  margin-bottom: 2px;
+}
+
+.notif-text {
+  font-size: 13px;
+  color: #374151;
+}
+
+/* Time on the right */
+.notif-time {
+  font-size: 11px;
+  white-space: nowrap;
+  color: #6b7280;
+}
+
+/* Row hover */
+.notification-dropdown li {
+  padding: 10px 14px;
+  border-bottom: 1px solid #e5e7eb;
+  transition: background .2s ease, transform .15s ease;
+}
+
+.notification-dropdown li:hover {
+  background: #f9fafb;
+  transform: translateY(-2px);
+}
+
+/* Unread left highlight */
+.notification-dropdown li.unread {
+  border-left: 4px solid #2684fc;
+}
+
+/* Show the dropdown when the show class is added */
+.notification-dropdown.show {
+  display: block; /* Ensure it is displayed */
+  opacity: 1; /* Make it visible */
+  pointer-events: auto; /* Allow interaction */
+}
+
+
+/* === SIDEBAR (<aside class="sidebar">) === */
+aside.sidebar {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  width: 220px;
+  height: 100%;
+  padding: 1rem;
+  display: flex;
+  background-color: #fff;
+  flex-direction: column;
+  border-right: 1px solid #dcdcdc;
+  z-index: 1;
+  overflow-y: auto;
+}
+aside.sidebar nav {
+  border-bottom: 1px solid #dcdcdc;
+}
+aside.sidebar nav a, .dropbtn {
+  color: black;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 15px;
+  border-radius: 20px;
+  transition: background 0.2s, color 0.2s;
+  font-size: 14px;
+}
+.dropbtn {
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+aside.sidebar nav a.active,
+aside.sidebar nav a:hover, .dropbtn:hover, .dropbtn.active {
+  background-color: #2684FC;
+  color: #fff;
+}
+
+aside.sidebar .divider {
+  border-top: 1px solid #52616b;
+  margin: 1rem 0;
+}
+
+
+aside.sidebar a.logout {
+  color: red;
+  text-decoration: none;
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 15px;
+  border-radius: 20px;
+  transition: background 0.2s, color 0.2s;
+  font-size: 14px;
+}
+.dropdown-content {
+      display: none;
+      padding-left: 20px;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 5px 0;
+    }
+
+    .dropdown-content.show {
+      display: block;
+    }
+/* Ensure SweetAlert2 overlay wins over any floating UI */
+.swal2-container {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 2147483647 !important; /* max it out */
+}
+

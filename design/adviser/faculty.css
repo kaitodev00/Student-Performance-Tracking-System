@@ -1,0 +1,156 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  flex-direction: column;
+}
+
+/* === MAIN CONTENT AREA === */
+.container {
+  flex: 1;
+  background-color: #f4f6f8;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* === Filter Bar (Search & Dropdowns) === */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+  background: #fff;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.filter-bar input[type="text"],
+.filter-bar select {
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  background-color: #f9f9f9;
+  outline: none;
+  min-width: 120px;
+}
+
+.filter-bar input[type="text"] {
+  flex: 1;
+  max-width: 200px;
+}
+
+.filter-bar .fa-search,
+.filter-bar .fa-print {
+  font-size: 16px;
+  color: #2c65c8;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* === Faculty Cards Grid === */
+.faculty-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  padding-bottom: 30px;
+}
+
+/* === Faculty Card Styling === */
+.faculty-card {
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease;
+  cursor: pointer; /* Pointer on hover to indicate interactability */
+}
+
+.faculty-card:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+}
+
+.card-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.faculty-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.text-section {
+  flex: 1;
+  text-align: right;
+}
+
+.faculty-card .faculty-name {
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 4px;
+  color: #111827;
+}
+
+.faculty-card .faculty-dept {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 6px;
+  margin-right: 30px;
+}
+
+.faculty-card a {
+  text-decoration: none;
+  font-size: 13px;
+  color: #2c65c8;
+  font-weight: 500;
+  display: block;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+.faculty-card a:hover {
+  text-decoration: underline; /* Underline on hover for clarity */
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+  .filter-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filter-bar input[type="text"],
+  .filter-bar select {
+    width: 100%;
+  }
+
+  .faculty-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Smaller cards on mobile */
+  }
+
+  .faculty-card {
+    padding: 12px;
+  }
+
+  .faculty-card img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .text-section {
+    text-align: left;
+  }
+}

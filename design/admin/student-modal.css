@@ -1,0 +1,159 @@
+/* Modal Backdrop and Container */
+#studentModal {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+#studentModal .modal-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+}
+
+/* Modal Box */
+#studentModal .modal-box {
+  position: relative;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  max-width: 400px;
+  margin: 1rem;
+  overflow: hidden;
+  animation: scale-in 0.25s ease;
+}
+
+/* Header Design */
+#studentModal .modal-box > div:first-child {
+  height: 8rem;
+  background: linear-gradient(to bottom right, #1e293b, #334155, #0f172a);
+  position: relative;
+}
+#studentModal .modal-box > div:first-child::before,
+#studentModal .modal-box > div:first-child::after {
+  content: "";
+  position: absolute;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 9999px;
+}
+#studentModal .modal-box > div:first-child::before {
+  width: 8rem;
+  height: 8rem;
+  top: -2.5rem;
+  right: -2.5rem;
+}
+#studentModal .modal-box > div:first-child::after {
+  width: 5rem;
+  height: 5rem;
+  bottom: -1.25rem;
+  left: -1.25rem;
+}
+
+/* Close Button */
+#studentModal .modal-box button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  background: transparent;
+  border: none;
+  border-radius: 9999px;
+  transition: background-color 0.2s ease;
+}
+#studentModal .modal-box button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+/* Profile */
+#modalProfile {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 9999px;
+  border: 4px solid white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+  margin-top: -3rem;
+  position: relative;
+}
+#modalProfile + div {
+  position: absolute;
+  bottom: -0.25rem;
+  right: -0.25rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: #22c55e;
+  border: 2px solid white;
+  border-radius: 9999px;
+}
+
+/* Text and Layout */
+#studentModal h2 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 0.25rem;
+}
+#studentModal p {
+  font-size: 0.875rem;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+#studentModal .text-center {
+  text-align: center;
+}
+#studentModal .text-left {
+  text-align: left;
+}
+#studentModal .tag-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: #f3f4f6;
+  color: #374151;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 9999px;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Navigation Buttons */
+.modal-side-controls {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+.side-btn {
+  pointer-events: all;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  border-radius: 9999px;
+  margin: 0 0.5rem;
+  font-size: 1.25rem;
+}
+.side-btn:hover {
+  background: #f3f4f6;
+}
+
+/* Animation */
+@keyframes scale-in {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
